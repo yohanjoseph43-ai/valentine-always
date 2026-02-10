@@ -134,7 +134,7 @@ elif st.session_state.step == "karate":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.write("🥋 **KARATE CHALLENGE**")
-        st.write("Proof of strength required! Strike the target 10 times.")
+        st.write("Punch my heart to see what's inside! Strike the target 10 times.")
         st.progress(st.session_state.strikes / 10)
         if st.button("PUNCH! 👊"):
             st.session_state.strikes += 1
@@ -149,7 +149,7 @@ elif st.session_state.step == "karate":
 # --- STEP 4: VISUAL ARCHIVES ---
 elif st.session_state.step == "memories":
     st.progress(0.5)
-    st.markdown("<h2 style='text-align:center; color:white;'>📸 Visual Archives</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center; color:black;'>📸 Visual Archives</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 4, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
