@@ -98,7 +98,7 @@ if st.session_state.step == "security":
         st.write("🔒 **ENCRYPTED FILE: OPEN_HEART.EXE**")
         password = st.text_input("Enter Secret Key (City where we first met?):", type="default")
         if st.button("Decrypt"):
-            if password.lower() == "banglore": 
+            if password.lower() == "bangalore": 
                 st.success("Identity Verified.")
                 time.sleep(1)
                 move_to("proposal")
@@ -112,7 +112,7 @@ elif st.session_state.step == "proposal":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'><span class='anime-icon'>🌸</span>", unsafe_allow_html=True)
-        st.write("## Will you be my Valentine?")
+        st.write("## Will you be MIne forever?")
         
         c1, space, c2 = st.columns([1, 0.2, 1])
         with c1:
