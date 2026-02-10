@@ -166,11 +166,11 @@ elif st.session_state.step == "memories":
 # --- STEP 5: SOUNDTRACK ---
 elif st.session_state.step == "soundtrack":
     st.progress(0.7)
-    st.markdown("<h2 style='text-align:center; color:white;'>🎶 Heart's OST</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center; color:white;'>🎶 Songs that remind me of you</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         songs = [
-            {"t": "Arz Kiya Hai", "a": "Anuv Jain", "u": "https://music.youtube.com/watch?v=-BJt4fCAtZE"},
+            {"t": "Naan Pogiren", "a": "S.P. Balasubrahmanyam & K.S. Chitra", "u":"https://youtu.be/bWlsbVfEnII?si=OqPK2NV0CUdWKQMk"},
             {"t": "I think they call this love", "a": "Matthew Ifield", "u": "https://music.youtube.com/watch?v=0k_199YdfX4"},
             {"t": "Perfect", "a": "Ed Sheeran", "u": "https://music.youtube.com/watch?v=2Vv-BfVoq4g"}
         ]
