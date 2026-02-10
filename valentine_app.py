@@ -112,7 +112,7 @@ elif st.session_state.step == "proposal":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'><span class='anime-icon'>🌸</span>", unsafe_allow_html=True)
-        st.write("## Will you be MIne forever?")
+        st.write("## Will you be Mine Forever?")
         
         c1, space, c2 = st.columns([1, 0.2, 1])
         with c1:
