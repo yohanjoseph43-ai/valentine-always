@@ -1,129 +1,171 @@
 import streamlit as st
 import time
 
-# 1. Page Configuration
-st.set_page_config(page_title="Project Love v2.0", page_icon="💖", layout="wide")
+# 1. Page & Metadata Configuration
+st.set_page_config(
+    page_title="Project Love v2.0 | Deployment", 
+    page_icon="💖", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-# 2. Symmetrical & Clean Styling (CSS)
+# 2. Professional CSS (UI/UX Engineering)
 st.markdown("""
     <style>
+    /* Importing a clean, professional font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* Background Gradient */
     .stApp {
-        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+        background: linear-gradient(145deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
     }
-    .header-text {
-        text-align: center;
-        color: white;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-        font-family: 'Helvetica Neue', sans-serif;
-    }
+
+    /* Professional Glassmorphism Card */
     .glass-card {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-        backdrop-filter: blur(4px);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        padding: 30px;
-        margin-bottom: 25px;
-        color: white;
-        text-align: center;
-        min-height: 220px; /* Symmetrical box heights */
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        color: #4a4a4a;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
     }
+    
+    .glass-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Pulsing Heart for Landing Page */
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.9; }
+    }
+    .heart-icon {
+        font-size: 100px;
+        text-align: center;
+        animation: pulse 2s infinite ease-in-out;
+        margin-bottom: 20px;
+    }
+
+    /* Clean Button Styling */
     div.stButton > button {
-        width: 100%;
-        border-radius: 25px;
-        border: none;
+        border-radius: 12px;
+        height: 3.5em;
         background-color: #ff4b4b;
         color: white;
-        font-weight: bold;
-        transition: 0.3s;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
+        transition: all 0.3s ease;
     }
     div.stButton > button:hover {
-        background-color: #ff7575;
-        transform: scale(1.03);
+        background-color: #e63939;
+        box-shadow: 0 6px 20px rgba(255, 75, 75, 0.4);
+    }
+
+    /* Sidebar Refinement */
+    [data-testid="stSidebar"] {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Title Styling */
+    .header-text {
+        text-align: center;
+        color: #ffffff;
+        font-weight: 600;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 40px;
     }
     </style>
     """, unsafe_allow_html=True)
 
 # 3. Sidebar Navigation
 with st.sidebar:
-    st.markdown("## 💌 Menu")
-    page = st.radio("Navigate:", ["The Proposal", "Why I Love You", "Our Soundtrack", "Love Analytics"])
+    st.markdown("### 🛠️ Core Modules")
+    page = st.radio("Navigation", ["Initialization", "Visual Assets", "Audio Logs", "System Analytics"])
     st.divider()
-    st.write("Status: *Highly Encrypted Love*")
+    st.caption("Version 2.0.4 | Stable Build")
+    st.caption("Created with ❤️ by your Developer")
 
-# --- PAGE 1: THE PROPOSAL ---
-if page == "The Proposal":
-    st.markdown("<h1 class='header-text'>Incoming Request... ❤️</h1>", unsafe_allow_html=True)
+# --- PAGE 1: INITIALIZATION (PROPOSAL) ---
+if page == "Initialization":
+    st.write("##")
     col1, col2, col3 = st.columns([1, 2, 1])
+    
     with col2:
+        st.markdown("<div class='heart-icon'>❤️</div>", unsafe_allow_html=True)
         st.markdown("""
             <div class='glass-card'>
-                <h3>System analysis complete.</h3>
-                <p style='font-size: 1.2em;'>One question remains for the User:</p>
-                <h2 style='font-size: 2.5em;'>Will you be my Valentine?</h2>
+                <h1 style='color: white; font-size: 2.2rem;'>// REQUESTING CONNECTION</h1>
+                <p style='color: #616161; font-size: 1.1rem; margin-top: 15px;'>
+                    A secure link has been established. 
+                    Validation requires one final confirmation.
+                </p>
+                <hr style='border: 0.5px solid rgba(255,255,255,0.3); margin: 30px 0;'>
+                <h2 style='color: #d32f2f; font-size: 1.8rem;'>Will you be my Valentine?</h2>
             </div>
         """, unsafe_allow_html=True)
-        btn_col1, btn_col2 = st.columns(2)
-        with btn_col1:
-            if st.button("YES! 😍"):
+        
+        c1, c2 = st.columns(2)
+        with c1:
+            if st.button("ACCEPT", use_container_width=True):
                 st.balloons()
-                st.toast("Access Granted!", icon="❤️")
-        with btn_col2:
-            if st.button("No 😢"):
-                st.toast("Error 404: Option Not Found", icon="🚫")
+                st.toast("Success: Connection Stabilized.", icon="💖")
+        with c2:
+            if st.button("REJECT", use_container_width=True):
+                st.toast("Warning: Permission Denied. System override in effect.", icon="🚫")
 
-# --- PAGE 2: WHY I LOVE YOU ---
-elif page == "Why I Love You":
+# --- PAGE 2: VISUAL ASSETS (WHY I LOVE YOU) ---
+elif page == "Visual Assets":
     st.markdown("<h1 class='header-text'>💌 Why You?</h1>", unsafe_allow_html=True)
     reasons = [
-        ("🌟 Your Kindness", "You have the kindest soul I've ever met."),
-        ("💻 Your Support", "You are the best 'User Interface' of my life."),
-        ("✨ Your Magic", "You turn ordinary days into beautiful memories."),
-        ("🍕 Your Presence", "You're my favorite person to do absolutely nothing with.")
+        ("🌟 Your Kindness", "Your empathy and heart are the foundation of everything we build together."),
+        ("💻 Your Support", "You are the most reliable partner, both in life and in my projects."),
+        ("✨ Your Magic", "You bring a spark to every ordinary day that I can't explain."),
+        ("🍕 Your Presence", "Simply being near you is the best part of my daily routine.")
     ]
-    col_left, col_right = st.columns(2)
+    c_l, c_r = st.columns(2)
     for i, (title, body) in enumerate(reasons):
-        target_col = col_left if i % 2 == 0 else col_right
-        with target_col:
-            st.markdown(f"<div class='glass-card' style='text-align: left;'><h3 style='margin-top:0; color: #ffefef;'>{title}</h3><p style='font-size: 1.1em;'>{body}</p></div>", unsafe_allow_html=True)
+        target = c_l if i % 2 == 0 else c_r
+        with target:
+            st.markdown(f"<div class='glass-card' style='text-align: left;'><h3 style='color: #d32f2f;'>{title}</h3><p style='color: #4f4f4f;'>{body}</p></div>", unsafe_allow_html=True)
 
-# --- PAGE 3: OUR SOUNDTRACK ---
-elif page == "Our Soundtrack":
-    st.markdown("<h1 class='header-text'>🎶 Songs That Remind Me of You</h1>", unsafe_allow_html=True)
-    
+# --- PAGE 3: AUDIO LOGS (SOUNDTRACK) ---
+elif page == "Audio Logs":
+    st.markdown("<h1 class='header-text'>🎶 Our Soundtrack</h1>", unsafe_allow_html=True)
     songs = [
-        {"title": "Arz Kiya Hai", "artist": "Anuv Jain", "note": "Because you're the poetry I always wanted to write."},
-        {"title": "I Think They Call This Love", "artist": "Elliot James Reay", "note": "That old-school feeling I get whenever I'm with you."},
-        {"title": "Perfect", "artist": "Ed Sheeran", "note": "Because you are, in every single way."},
-        {"title": "A Thousand Years", "artist": "Christina Perri", "note": "I've loved you for a thousand more."}
+        {"title": "Arz Kiya Hai", "artist": "Anuv Jain", "note": "The poetry that reminds me of our story."},
+        {"title": "I think they call this love", "artist": "Matthew Ifield", "note": "A track that captures our exact frequency."},
+        {"title": "Perfect", "artist": "Ed Sheeran", "note": "A timeless classic for a perfect person."},
+        {"title": "A Thousand Years", "artist": "Christina Perri", "note": "A promise that scales beyond time."}
     ]
-
-    col_l, col_r = st.columns(2)
+    c_l, c_r = st.columns(2)
     for i, song in enumerate(songs):
-        target_col = col_l if i % 2 == 0 else col_r
-        with target_col:
-            st.markdown(f"""
-                <div class='glass-card'>
-                    <h4 style='margin:0; color: #ffefef;'>🎵 {song['title']}</h4>
-                    <p style='font-style: italic;'>{song['artist']}</p>
-                    <hr style='border: 0.5px solid rgba(255,255,255,0.2);'>
-                    <p style='font-size: 0.9em;'>"{song['note']}"</p>
-                </div>
-            """, unsafe_allow_html=True)
+        target = c_l if i % 2 == 0 else c_r
+        with target:
+            st.markdown(f"<div class='glass-card'><h4>🎵 {song['title']}</h4><p style='color: #616161;'>{song['artist']}</p><p style='font-size:0.85em; color: #888;'><i>{song['note']}</i></p></div>", unsafe_allow_html=True)
 
-# --- PAGE 4: LOVE ANALYTICS ---
-elif page == "Love Analytics":
-    st.markdown("<h1 class='header-text'>📊 The Data of Us</h1>", unsafe_allow_html=True)
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Current Love Level", "Infinite", "↑ 100%")
-    c2.metric("Patience Level", "Legendary", "Max")
-    c3.metric("Happiness Index", "9999+", "🚀")
+# --- PAGE 4: SYSTEM ANALYTICS ---
+elif page == "System Analytics":
+    st.markdown("<h1 class='header-text'>📊 Love Analytics</h1>", unsafe_allow_html=True)
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Love Level", "Infinite", "↑ 100%")
+    m2.metric("System Uptime", "365 Days", "Online")
+    m3.metric("Happiness Index", "9999+", "🚀")
     
-    st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-    st.write("### Interactive Love Gauge")
-    love_slider = st.select_slider("", options=["A lot", "To the moon", "To the galaxy", "Infinite Loop"])
-    if love_slider == "Infinite Loop":
+    st.markdown("<div class='glass-card'><h3>Interactive Love Gauge</h3>", unsafe_allow_html=True)
+    val = st.select_slider("", options=["Low", "Medium", "High", "To the Moon", "Infinite"])
+    if val == "Infinite":
         st.snow()
-        st.write("### ❤️ **CRITICAL ERROR: LOVE OVERFLOW!** ❤️")
+        st.write("### ⚠️ **STATUS: OVERFLOW ERROR**")
     st.markdown("</div>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: white; opacity: 0.7;'>Built with ❤️ by your favorite programmer</p>", unsafe_allow_html=True)
