@@ -51,6 +51,7 @@ st.markdown("""
         padding: 30px;
         margin-top: 20px;
         animation: fadeIn 2s;
+        text-align: left;
     }
 
     /* --- BUTTERFLY & HEART PARTICLES --- */
@@ -172,22 +173,25 @@ elif st.session_state.step == "soundtrack":
                     </div>
                 </a>
             """, unsafe_allow_html=True)
-        if st.button("Plan Our Adventure ➡️"): move_to("date")
+        if st.button("Read Secret Letter ➡️"): move_to("secret_letter")
 
-# --- STEP 6: DATE PLANNER ---
-elif st.session_state.step == "date":
+# --- STEP 6: SECRET LETTER (Replaces Date Planner) ---
+elif st.session_state.step == "secret_letter":
     st.progress(0.9)
-    st.markdown("<h2 style='text-align:center; color:white;'>🎟️ Date Selector</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center; color:white;'>💌 Encrypted Message</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        choice = st.radio("Pick our next quest:", ["Fancy Dinner 👗", "Arcade & Pizza 🍕", "Cozy Movie Night 🍿"])
-        if st.button("Confirm Choice"):
-            st.session_state.date_choice = choice
+        st.write("### ✍️ Digital Love Letter")
+        # You can hardcode your message here or leave the text area
+        custom_note = st.text_area("Write your heart out here...", placeholder="My dearest...")
+        
+        if st.button("Seal and Send ❤️"):
+            st.session_state.final_note = custom_note
             move_to("finale")
         st.markdown("</div>", unsafe_allow_html=True)
 
-# --- STEP 7: FINALE (With Butterflies & Custom Note) ---
+# --- STEP 7: FINALE ---
 elif st.session_state.step == "finale":
     # Custom Floating Particles (Butterfly Theme)
     st.markdown("""
@@ -201,27 +205,22 @@ elif st.session_state.step == "finale":
     st.progress(1.0)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        # User Input for Letter
-        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.write("### ✍️ System Output: Personalized Message")
-        custom_note = st.text_area("Write a message to be displayed in the card:", placeholder="My dearest...")
-        st.markdown("</div>", unsafe_allow_html=True)
-
-        # The Letter Display
-        if custom_note:
+        # Display the Letter the user just wrote (or hardcoded)
+        if st.session_state.get('final_note'):
             st.markdown(f"""
                 <div class='letter-card'>
-                    <h3 style='color: #ff5e78; margin-top:0;'>💌 Open Message</h3>
-                    <p style='font-size: 1.1rem; color: #444; line-height: 1.6;'>"{custom_note}"</p>
+                    <h3 style='color: #ff5e78; margin-top:0; text-align:center;'>💌 A Note for You</h3>
+                    <p style='font-size: 1.1rem; color: #444; line-height: 1.6;'>"{st.session_state.final_note}"</p>
                 </div>
             """, unsafe_allow_html=True)
 
         # Final Summary
         st.markdown("<div class='glass-card' style='margin-top: 20px;'>", unsafe_allow_html=True)
         st.markdown("<span class='anime-icon'>💖</span>", unsafe_allow_html=True)
-        st.write(f"**Date Selection:** {st.session_state.get('date_choice', 'TBD')}")
-        st.write("## Connection Verified: I Love You.")
-        if st.button("Restart Love.OS 🔄"):
+        st.write("## Connection Verified: 100% Sync")
+        st.write("---")
+        st.write("## I Love You Forever.")
+        if st.button("Restart Journey 🔄"):
             st.session_state.strikes = 0
             move_to("security")
         st.markdown("</div>", unsafe_allow_html=True)
