@@ -170,9 +170,9 @@ elif st.session_state.step == "soundtrack":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         songs = [
-            {"t": "Naan Pogiren", "a": "S.P. Balasubrahmanyam & K.S. Chitra", "u":"https://youtu.be/bWlsbVfEnII?si=OqPK2NV0CUdWKQMk"},
-            {"t": "I think they call this love", "a": "Matthew Ifield", "u": "https://music.youtube.com/watch?v=0k_199YdfX4"},
-            {"t": "Perfect", "a": "Ed Sheeran", "u": "https://music.youtube.com/watch?v=2Vv-BfVoq4g"}
+            {"t": "Naan Pogiren", "a": "S.P. Balasubrahmanyam & K.S. Chitra", "u":"https://open.spotify.com/track/16jOVIIrpo7XV8KOnx4ZwX?si=f56bf10b577242ac"},
+            {"t": "I think they call this love", "a": "Matthew Ifield", "u": "https://open.spotify.com/track/14mT8BCOXiUUcGlb7KujkT?si=b374b595daa74786"},
+            {"t": "Arz Kiya Hai", "a": "Anuv Jain", "u": "https://open.spotify.com/track/1bMkimTb47umgNP6xCi4A1?si=cf336cbbe95343dd"}
         ]
         for s in songs:
             st.markdown(f"""
