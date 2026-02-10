@@ -48,10 +48,13 @@ st.markdown("""
         background: rgba(255, 255, 255, 0.7);
         border: 2px dashed #ff758c;
         border-radius: 20px;
-        padding: 30px;
+        padding: 40px;
         margin-top: 20px;
-        animation: fadeIn 2s;
+        animation: fadeIn 3s;
         text-align: left;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: #444;
     }
 
     /* --- BUTTERFLY & HEART PARTICLES --- */
@@ -99,7 +102,7 @@ if st.session_state.step == "security":
                 time.sleep(1)
                 move_to("proposal")
             else:
-                st.error("Access Denied. Hint: Where our story began.")
+                st.error("Access Denied. Hint: Where our journey began.")
         st.markdown("</div>", unsafe_allow_html=True)
 
 # --- STEP 2: PROPOSAL ---
@@ -153,7 +156,7 @@ elif st.session_state.step == "memories":
         st.markdown("</div>", unsafe_allow_html=True)
         if st.button("Unlock Soundtrack ➡️"): move_to("soundtrack")
 
-# --- STEP 5: SOUNDTRACK (Clickable Cards) ---
+# --- STEP 5: SOUNDTRACK ---
 elif st.session_state.step == "soundtrack":
     st.progress(0.7)
     st.markdown("<h2 style='text-align:center; color:white;'>🎶 Heart's OST</h2>", unsafe_allow_html=True)
@@ -175,25 +178,38 @@ elif st.session_state.step == "soundtrack":
             """, unsafe_allow_html=True)
         if st.button("Read Secret Letter ➡️"): move_to("secret_letter")
 
-# --- STEP 6: SECRET LETTER (Replaces Date Planner) ---
+# --- STEP 6: THE SECRET LETTER (Already written in code) ---
 elif st.session_state.step == "secret_letter":
     st.progress(0.9)
-    st.markdown("<h2 style='text-align:center; color:white;'>💌 Encrypted Message</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.write("### ✍️ Digital Love Letter")
-        # You can hardcode your message here or leave the text area
-        custom_note = st.text_area("Write your heart out here...", placeholder="My dearest...")
+        st.write("### 🔒 ACCESSING DEEP ARCHIVES...")
+        time.sleep(0.5)
         
-        if st.button("Seal and Send ❤️"):
-            st.session_state.final_note = custom_note
-            move_to("finale")
+        # --- EDIT YOUR SECRET LETTER HERE ---
+        secret_letter_text = """
+        My Dearest,<br><br>
+        I wanted to take a moment to tell you how much you mean to me. 
+        From our first meet in Kochi to every training session we've shared, 
+        you have been the best part of my days.<br><br>
+        Thank you for being my teammate, my best friend, and my favorite person. 
+        This little OS was built just to remind you that I love you forever.<br><br>
+        Yours always.
+        """
+        
+        st.markdown(f"""
+            <div class='letter-card'>
+                <h2 style='color: #ff758c; text-align: center; margin-bottom: 20px;'>💌 To My Valentine</h2>
+                {secret_letter_text}
+            </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("The Final Step ➡️"): move_to("finale")
         st.markdown("</div>", unsafe_allow_html=True)
 
 # --- STEP 7: FINALE ---
 elif st.session_state.step == "finale":
-    # Custom Floating Particles (Butterfly Theme)
     st.markdown("""
         <div class="particle p1">🦋</div>
         <div class="particle p2">💖</div>
@@ -205,19 +221,9 @@ elif st.session_state.step == "finale":
     st.progress(1.0)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        # Display the Letter the user just wrote (or hardcoded)
-        if st.session_state.get('final_note'):
-            st.markdown(f"""
-                <div class='letter-card'>
-                    <h3 style='color: #ff5e78; margin-top:0; text-align:center;'>💌 A Note for You</h3>
-                    <p style='font-size: 1.1rem; color: #444; line-height: 1.6;'>"{st.session_state.final_note}"</p>
-                </div>
-            """, unsafe_allow_html=True)
-
-        # Final Summary
-        st.markdown("<div class='glass-card' style='margin-top: 20px;'>", unsafe_allow_html=True)
+        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.markdown("<span class='anime-icon'>💖</span>", unsafe_allow_html=True)
-        st.write("## Connection Verified: 100% Sync")
+        st.write("### CONNECTION VERIFIED: 100% SYNC")
         st.write("---")
         st.write("## I Love You Forever.")
         if st.button("Restart Journey 🔄"):
