@@ -4,7 +4,7 @@ import time
 # 1. Page Configuration
 st.set_page_config(page_title="Love.OS | Full Deployment", page_icon="🥋", layout="wide")
 
-# 2. Professional Anime-Tech Styling
+# 2. Professional Anime-Tech Styling (CSS)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Varela+Round&display=swap');
@@ -41,10 +41,38 @@ st.markdown("""
         transition: 0.3s ease;
     }
     
-    .song-link {
-        text-decoration: none;
-        color: inherit;
+    .song-link { text-decoration: none; color: inherit; }
+
+    /* Special Letter Styling */
+    .letter-card {
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px dashed #ff758c;
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 20px;
+        animation: fadeIn 2s;
     }
+
+    /* --- BUTTERFLY & HEART PARTICLES --- */
+    @keyframes float-up {
+        0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-20vh) translateX(50px) rotate(20deg); opacity: 0; }
+    }
+    .particle {
+        position: fixed;
+        bottom: -50px;
+        font-size: 30px;
+        user-select: none;
+        pointer-events: none;
+        z-index: 9999;
+    }
+    .p1 { left: 15%; animation: float-up 8s infinite; }
+    .p2 { left: 35%; animation: float-up 11s infinite; animation-delay: 2s; }
+    .p3 { left: 55%; animation: float-up 7s infinite; animation-delay: 1s; }
+    .p4 { left: 75%; animation: float-up 10s infinite; animation-delay: 4s; }
+    .p5 { left: 95%; animation: float-up 9s infinite; animation-delay: 3s; }
+    
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
     """, unsafe_allow_html=True)
 
@@ -63,15 +91,14 @@ if st.session_state.step == "security":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.write("🔒 **ENCRYPTED FILE: OPEN_HEART.EXE**")
-        # Personalizing based on your hobby and location
-        password = st.text_input("Enter Secret Key (The city where we first met?):", type="default")
+        password = st.text_input("Enter Secret Key (City where we first met?):", type="default")
         if st.button("Decrypt"):
             if password.lower() == "kochi": 
-                st.success("Identity Verified. Welcome back.")
+                st.success("Identity Verified.")
                 time.sleep(1)
                 move_to("proposal")
             else:
-                st.error("Access Denied. Hint: Where did our story begin?")
+                st.error("Access Denied. Hint: Where our story began.")
         st.markdown("</div>", unsafe_allow_html=True)
 
 # --- STEP 2: PROPOSAL ---
@@ -87,7 +114,7 @@ elif st.session_state.step == "proposal":
             st.balloons()
             move_to("karate")
         if c2.button("No 😢"):
-            st.toast("Error: System override. Action 'No' is not permitted.")
+            st.toast("Error: Action 'No' is locked. Try 'Yes' instead!")
 
 # --- STEP 3: KARATE CHALLENGE ---
 elif st.session_state.step == "karate":
@@ -96,7 +123,7 @@ elif st.session_state.step == "karate":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.write("🥋 **KARATE CHALLENGE**")
-        st.write("I've been training... now it's your turn! Strike the target 10 times.")
+        st.write("Proof of strength required! Strike the target 10 times.")
         st.progress(st.session_state.strikes / 10)
         if st.button("PUNCH! 👊"):
             st.session_state.strikes += 1
@@ -108,7 +135,7 @@ elif st.session_state.step == "karate":
                 st.rerun()
         st.markdown("</div>", unsafe_allow_html=True)
 
-# --- STEP 4: VISUAL ARCHIVES (PHOTO GALLERY) ---
+# --- STEP 4: VISUAL ARCHIVES ---
 elif st.session_state.step == "memories":
     st.progress(0.5)
     st.markdown("<h2 style='text-align:center; color:white;'>📸 Visual Archives</h2>", unsafe_allow_html=True)
@@ -116,20 +143,16 @@ elif st.session_state.step == "memories":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         img_c1, img_c2 = st.columns(2)
-        
-        # --- PHOTOS: CHANGE THESE FILENAMES TO YOUR ACTUAL PHOTOS ---
         try:
-            img_c1.image("625978180_910554591451989_1397209579107700988_n.jpg", use_container_width=True)
-            img_c2.image("627368267_1196088558998310_7517174288371660696_n.jpg", use_container_width=True)
+            img_c1.image("625978180_910554591451989_1397209579107700988_n.jpg", caption="Special Memory", use_container_width=True)
+            img_c2.image("627368267_1196088558998310_7517174288371660696_n.jpg", caption="Special Memory", use_container_width=True)
         except:
-            # Fallback if you haven't uploaded photos yet
-            img_c1.image("https://via.placeholder.com/400x500.png?text=Photo+1+Goes+Here", caption="Upload photo1.jpg to GitHub")
-            img_c2.image("https://via.placeholder.com/400x500.png?text=Photo+2+Goes+Here", caption="Upload photo2.jpg to GitHub")
-            
+            img_c1.image("https://via.placeholder.com/400", caption="Photo 1 Not Found")
+            img_c2.image("https://via.placeholder.com/400", caption="Photo 2 Not Found")
         st.markdown("</div>", unsafe_allow_html=True)
-        if st.button("Continue to Soundtrack ➡️"): move_to("soundtrack")
+        if st.button("Unlock Soundtrack ➡️"): move_to("soundtrack")
 
-# --- STEP 5: SOUNDTRACK ---
+# --- STEP 5: SOUNDTRACK (Clickable Cards) ---
 elif st.session_state.step == "soundtrack":
     st.progress(0.7)
     st.markdown("<h2 style='text-align:center; color:white;'>🎶 Heart's OST</h2>", unsafe_allow_html=True)
@@ -149,7 +172,7 @@ elif st.session_state.step == "soundtrack":
                     </div>
                 </a>
             """, unsafe_allow_html=True)
-        if st.button("Plan Our Next Quest ➡️"): move_to("date")
+        if st.button("Plan Our Adventure ➡️"): move_to("date")
 
 # --- STEP 6: DATE PLANNER ---
 elif st.session_state.step == "date":
@@ -158,24 +181,47 @@ elif st.session_state.step == "date":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        choice = st.radio("Pick your favorite adventure:", ["Fancy Dinner 👗", "Arcade & Pizza 🍕", "Cozy Movie Night 🍿"])
+        choice = st.radio("Pick our next quest:", ["Fancy Dinner 👗", "Arcade & Pizza 🍕", "Cozy Movie Night 🍿"])
         if st.button("Confirm Choice"):
             st.session_state.date_choice = choice
             move_to("finale")
         st.markdown("</div>", unsafe_allow_html=True)
 
-# --- STEP 7: FINALE ---
+# --- STEP 7: FINALE (With Butterflies & Custom Note) ---
 elif st.session_state.step == "finale":
+    # Custom Floating Particles (Butterfly Theme)
+    st.markdown("""
+        <div class="particle p1">🦋</div>
+        <div class="particle p2">💖</div>
+        <div class="particle p3">🌸</div>
+        <div class="particle p4">✨</div>
+        <div class="particle p5">🦋</div>
+    """, unsafe_allow_html=True)
+
     st.progress(1.0)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
+        # User Input for Letter
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
+        st.write("### ✍️ System Output: Personalized Message")
+        custom_note = st.text_area("Write a message to be displayed in the card:", placeholder="My dearest...")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        # The Letter Display
+        if custom_note:
+            st.markdown(f"""
+                <div class='letter-card'>
+                    <h3 style='color: #ff5e78; margin-top:0;'>💌 Open Message</h3>
+                    <p style='font-size: 1.1rem; color: #444; line-height: 1.6;'>"{custom_note}"</p>
+                </div>
+            """, unsafe_allow_html=True)
+
+        # Final Summary
+        st.markdown("<div class='glass-card' style='margin-top: 20px;'>", unsafe_allow_html=True)
         st.markdown("<span class='anime-icon'>💖</span>", unsafe_allow_html=True)
-        st.write("### FINAL ANALYSIS COMPLETE")
-        st.write(f"**Date Locked:** {st.session_state.get('date_choice')}")
-        st.write("## I Love You Forever.")
-        if st.button("Restart the Magic 🔄"):
+        st.write(f"**Date Selection:** {st.session_state.get('date_choice', 'TBD')}")
+        st.write("## Connection Verified: I Love You.")
+        if st.button("Restart Love.OS 🔄"):
             st.session_state.strikes = 0
             move_to("security")
         st.markdown("</div>", unsafe_allow_html=True)
-        st.snow()
