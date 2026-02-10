@@ -192,7 +192,7 @@ elif st.session_state.step == "secret_letter":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         secret_letter_text = """
-        My Dearest,<br><br>
+        My Dearest Anu,<br><br>
         I wanted to take a moment to tell you how much you mean to me. 
         From our first meet in Kochi to every training session we've shared, 
         you have been the best part of my days.<br><br>
