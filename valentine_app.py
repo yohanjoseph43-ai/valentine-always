@@ -2,81 +2,100 @@ import streamlit as st
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Special Deployment: Love v1.0", page_icon="💻")
+st.set_page_config(page_title="A Message From My Heart", page_icon="💖")
 
-# 2. Custom CSS for a clean, modern "Tech-Valentine" look
+# 2. Custom CSS for a Romantic, Soft Background
 st.markdown("""
     <style>
+    /* This creates the romantic gradient background */
     .stApp {
-        background-color: #0e1117;
-        color: #ffffff;
+        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
     }
+    
+    /* Styling for the "Love Letter" cards */
     .reason-card {
-        background-color: #262730;
+        background-color: rgba(255, 255, 255, 0.9);
         padding: 20px;
-        border-radius: 10px;
-        border-left: 5px solid #ff4b4b;
+        border-radius: 20px;
+        border: 1px solid #ff4b4b;
         margin-bottom: 15px;
-        box-shadow: 0px 4px 15px rgba(255, 75, 75, 0.2);
-        color: #fafafa;
-        font-family: 'Courier New', Courier, monospace;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+        color: #d32f2f;
+        font-family: 'Georgia', serif;
+        font-size: 1.1em;
+        line-height: 1.5;
     }
+    
+    /* Center the title and make it pop */
     .header-text {
         text-align: center;
-        color: #ff4b4b;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        font-family: 'Brush Script MT', cursive;
+        font-size: 3em;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        padding-top: 20px;
+    }
+
+    /* Styling the buttons to look more "Valentine" */
+    div.stButton > button:first-child {
+        background-color: #ff4b4b;
+        color: white;
+        border-radius: 50px;
+        border: none;
+        padding: 10px 30px;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# Initialize session state for the interaction
+# Initialize session state
 if 'answered' not in st.session_state:
     st.session_state.answered = False
 
 # --- APP LOGIC ---
 
 if not st.session_state.answered:
-    # LANDING PAGE: The Question
-    st.markdown("<h1 class='header-text'>// Requesting Connection...</h1>", unsafe_allow_html=True)
-    st.write("### Hey [Name], my heart is stuck in an infinite loop of thinking about you.")
-    st.write("I've finished the build for our future. Do you accept the merge request?")
+    # LANDING PAGE
+    st.markdown("<h1 class='header-text'>To My Favorite Person... ❤️</h1>", unsafe_allow_html=True)
+    st.write("### I built something special for you because you mean the world to me.")
+    st.write("Before you enter, I have one very important question:")
+    
+    st.markdown("## Will you be my Valentine?")
     
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("Accept (YES) 😍"):
+        if st.button("YES! 😍"):
             st.session_state.answered = True
             st.rerun()
 
     with col2:
-        # A playful "No" button for a programmer
-        if st.button("Reject (No) 😢"):
-            st.error("Access Denied: Permission 'No' not granted to current user. Please try 'Accept'.")
+        if st.button("No 😢"):
+            st.warning("Error: This choice is currently unavailable. Please select 'YES' to continue! 😉")
             time.sleep(1)
 
 else:
-    # SUCCESS PAGE: The Reasons
+    # SUCCESS PAGE
     st.balloons()
-    st.markdown("<h1 class='header-text'>Connection Established! ❤️</h1>", unsafe_allow_html=True)
-    st.success("Build Successful: You've made me the happiest dev in the world.")
+    st.markdown("<h1 class='header-text'>She Said Yes! ❤️</h1>", unsafe_allow_html=True)
     
-    st.write("### 💌 Why you're my favorite human:")
+    st.write("### 💌 Reasons why I'm so lucky to have you:")
 
-    # Reasons List (Tech/Programmer flavored)
+    # Updated Reasons (Purely Romantic)
     reasons = [
-        "✨ You're the 'Global Variable' in my life—everything depends on you.",
-        "🚀 Every day with you is a 'Successful Deploy' with zero errors.",
-        "🌟 You're the only person who can debug my bad mood without a stack trace.",
-        "💻 I'd definitely choose you over a dark mode IDE (and that's saying a lot).",
-        "🔥 You make my heart rate go higher than a CPU running a heavy render."
+        "🌹 You have the kindest heart I've ever known.",
+        "✨ You make every day feel brighter just by being in it.",
+        "⭐ You're the first person I want to talk to when I wake up and the last before I sleep.",
+        "💫 Your laugh is my favorite sound in the entire world.",
+        "❤️ You support my dreams and make me want to be a better person every single day."
     ]
 
-    # Display Reasons as Cards
+    # Display Reasons
     for reason in reasons:
         st.markdown(f"<div class='reason-card'>{reason}</div>", unsafe_allow_html=True)
 
     st.write("---")
-    st.info("Let's go offline together for Valentine's Day. No code, just us.")
+    st.markdown("### I can't wait for our Valentine's date! 🍷🍝")
     
-    if st.button("Click for a celebratory snow-fall"):
+    if st.button("Click for a little extra magic"):
         st.snow()
