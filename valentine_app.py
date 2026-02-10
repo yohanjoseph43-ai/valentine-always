@@ -65,8 +65,8 @@ if page == "The Proposal":
         st.markdown("""
             <div class='glass-card' style='text-align: center;'>
                 <h3>System analysis complete.</h3>
-                <p>One question remains for the User:</p>
-                <h2>Will you be my Valentine?</h2>
+                <p>One question remains for the User: Adheena jijo</p>
+                <h2>Will you be the love fo the lifetime ?</h2>
             </div>
         """, unsafe_allow_html=True)
         
