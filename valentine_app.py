@@ -98,7 +98,7 @@ if st.session_state.step == "security":
         st.write("🔒 **ENCRYPTED FILE: OPEN_HEART.EXE**")
         password = st.text_input("Enter Secret Key (City where we first met?):", type="default")
         if st.button("Decrypt"):
-            if password.lower() == "kochi": 
+            if password.lower() == "banglore": 
                 st.success("Identity Verified.")
                 time.sleep(1)
                 move_to("proposal")
@@ -155,8 +155,8 @@ elif st.session_state.step == "memories":
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         img_c1, img_c2 = st.columns(2)
         try:
-            img_c1.image("photo1.jpg", caption="Our First Date", use_container_width=True)
-            img_c2.image("photo2.jpg", caption="Special Memory", use_container_width=True)
+            img_c1.image("625978180_910554591451989_1397209579107700988_n.jpg", caption="Special Memory", use_container_width=True)
+            img_c2.image("627368267_1196088558998310_7517174288371660696_n.jpg", caption="Special Memory", use_container_width=True)
         except:
             img_c1.image("https://via.placeholder.com/400", caption="Photo 1 missing")
             img_c2.image("https://via.placeholder.com/400", caption="Photo 2 missing")
