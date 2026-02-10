@@ -1,72 +1,82 @@
 import streamlit as st
-import random
 import time
 
-# Page configuration
-st.set_page_config(page_title="A Special Message for You", page_icon="❤️")
+# 1. Page Configuration
+st.set_page_config(page_title="Special Deployment: Love v1.0", page_icon="💻")
 
-# Custom CSS for styling
+# 2. Custom CSS for a clean, modern "Tech-Valentine" look
 st.markdown("""
     <style>
-    .main {
-        background-color: #fff5f5;
+    .stApp {
+        background-color: #0e1117;
+        color: #ffffff;
     }
-    .stButton>button {
-        width: 100%;
-        border-radius: 20px;
-        height: 3em;
-        background-color: #ff4b4b;
-        color: white;
+    .reason-card {
+        background-color: #262730;
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 5px solid #ff4b4b;
+        margin-bottom: 15px;
+        box-shadow: 0px 4px 15px rgba(255, 75, 75, 0.2);
+        color: #fafafa;
+        font-family: 'Courier New', Courier, monospace;
     }
-    .title-text {
+    .header-text {
         text-align: center;
-        color: #d32f2f;
-        font-family: 'Comic Sans MS', cursive;
+        color: #ff4b4b;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# Session state to track if she said YES!
+# Initialize session state for the interaction
 if 'answered' not in st.session_state:
     st.session_state.answered = False
 
-# Title
-st.markdown("<h1 class='title-text'>Hey [Girlfriend's Name]! ❤️</h1>", unsafe_allow_html=True)
+# --- APP LOGIC ---
 
 if not st.session_state.answered:
-    st.write("### I have a very important question to ask you...")
+    # LANDING PAGE: The Question
+    st.markdown("<h1 class='header-text'>// Requesting Connection...</h1>", unsafe_allow_html=True)
+    st.write("### Hey [Name], my heart is stuck in an infinite loop of thinking about you.")
+    st.write("I've finished the build for our future. Do you accept the merge request?")
     
-    # Use columns for buttons
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("YES! 😍"):
+        if st.button("Accept (YES) 😍"):
             st.session_state.answered = True
-            st.balloons()
             st.rerun()
 
     with col2:
-        # A little humor: The "No" button logic
-        no_button = st.button("No 😢")
-        if no_button:
-            st.warning("Error 404: 'No' option not found. Please try the other button! 😉")
+        # A playful "No" button for a programmer
+        if st.button("Reject (No) 😢"):
+            st.error("Access Denied: Permission 'No' not granted to current user. Please try 'Accept'.")
             time.sleep(1)
 
 else:
-    # This shows after she clicks YES
-    st.success("## WOO-HOO! You made me the happiest programmer alive! 🚀")
+    # SUCCESS PAGE: The Reasons
+    st.balloons()
+    st.markdown("<h1 class='header-text'>Connection Established! ❤️</h1>", unsafe_allow_html=True)
+    st.success("Build Successful: You've made me the happiest dev in the world.")
     
-    # You can add a link to a photo or a GIF here
-    st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHFpZzF4NXp6ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5X2NvbS80SDB4ZzR4ZzR4ZzR4L2dpZmh5LmdpZg/v1.Y2lkPTc5MGI3NjExNHFpZzF4NXp6ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5X2NvbS80SDB4ZzR4ZzR4ZzR4L2dpZmh5LmdpZg/L4lvBpHnJdcED0m7qO/giphy.gif")
+    st.write("### 💌 Why you're my favorite human:")
+
+    # Reasons List (Tech/Programmer flavored)
+    reasons = [
+        "✨ You're the 'Global Variable' in my life—everything depends on you.",
+        "🚀 Every day with you is a 'Successful Deploy' with zero errors.",
+        "🌟 You're the only person who can debug my bad mood without a stack trace.",
+        "💻 I'd definitely choose you over a dark mode IDE (and that's saying a lot).",
+        "🔥 You make my heart rate go higher than a CPU running a heavy render."
+    ]
+
+    # Display Reasons as Cards
+    for reason in reasons:
+        st.markdown(f"<div class='reason-card'>{reason}</div>", unsafe_allow_html=True)
+
+    st.write("---")
+    st.info("Let's go offline together for Valentine's Day. No code, just us.")
     
-    st.write("""
-    Every line of code I write is better because of you. 
-    Thanks for being my favorite person! 
-    
-    **Plan for Feb 14th:**
-    - [ ] Fancy Dinner 🍝
-    - [ ] No debugging allowed ❌
-    - [ ] Lots of laughs ❤️
-    """)
-    
-    st.snow()
+    if st.button("Click for a celebratory snow-fall"):
+        st.snow()
