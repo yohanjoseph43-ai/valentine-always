@@ -193,11 +193,10 @@ elif st.session_state.step == "secret_letter":
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         secret_letter_text = """
         My Dearest Anu,<br><br>
-        I wanted to take a moment to tell you how much you mean to me. 
-        From our first meet in Kochi to every training session we've shared, 
-        you have been the best part of my days.<br><br>
-        Thank you for being my teammate, my best friend, and my favorite person. 
-        I love you forever.<br><br>
+        Anu, I’ve been thinking about how lucky I feel to have you in my life, and I just wanted to put it into words. You bring such a special energy into my days — whether we’re laughing about something silly or just talking about random things, you somehow make every moment feel lighter and happier. It’s one of my favorite parts of the day, knowing I get to share those little conversations and memories with you.
+        What I admire most about you is how naturally you brighten the space around you. Your voice, your thoughts, your endless stories — they all carry a warmth that makes people feel comfortable and understood. I love how you can turn the simplest moment into something meaningful just by being yourself. It reminds me to enjoy life more and appreciate the small things.
+        You’ve shown me how powerful kindness, honesty, and genuine care can be. Every time you smile or get excited about something, it’s contagious in the best way. Being around you makes me want to be a better, happier version of myself, and I’m grateful for that more than I can say.
+        I hope you always remember how special you are — not just to me, but to everyone lucky enough to know you. Thank you for being your wonderful, talkative, caring self. Having you by my side makes ordinary days feel brighter, and I truly cherish what we share. No matter what, I’ll always appreciate the laughter, the conversations, and the warmth you bring into my life.<br><br>
         Yours always.
         """
         st.markdown(f"""
