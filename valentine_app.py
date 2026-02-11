@@ -168,13 +168,25 @@ elif st.session_state.step == "reasons":
 
 # --- STEP 6: SOUNDTRACK ---
 elif st.session_state.step == "soundtrack":
+    st.progress(0.7)
+    st.markdown("<h2 style='text-align:center; color:white;'>🎶 Heart's OST</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.write("### 🎶 Heart's OST")
-        st.write("[Naan Pogiren -  K. S. Chithra, S. P. Balasubrahmanyam](https://music.youtube.com/watch?v=fqAljCTdFyA&si=HkK1Fy7ppVcvCeAj)")
+        songs = [
+            {"t": "Arz Kiya Hai", "a": "Anuv Jain", "u": "https://music.youtube.com/watch?v=-BJt4fCAtZE"},
+            {"t": "I think they call this love", "a": "Matthew Ifield", "u": "https://music.youtube.com/watch?v=0k_199YdfX4"},
+            {"t": "Perfect", "a": "Ed Sheeran", "u": "https://music.youtube.com/watch?v=2Vv-BfVoq4g"}
+        ]
+        for s in songs:
+            st.markdown(f"""
+                <a href="{s['u']}" target="_blank" class="song-link">
+                    <div class='glass-card' style='padding: 20px; cursor: pointer;'>
+                        <h4 style='color: #ff5e78; margin: 0;'>🎵 {s['t']}</h4>
+                        <p style='color: #888; font-size: 0.9em;'>{s['a']}</p>
+                    </div>
+                </a>
+            """, unsafe_allow_html=True)
         if st.button("Read Secret Letter ➡️"): move_to("secret_letter")
-        st.markdown("</div>", unsafe_allow_html=True)
 
 # --- STEP 7: SECRET LETTER ---
 elif st.session_state.step == "secret_letter":
