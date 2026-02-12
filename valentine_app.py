@@ -160,7 +160,7 @@ elif st.session_state.step == "reasons":
         st.markdown("<div class='reason-header'>My Vaayadi Thatha🦜</div>", unsafe_allow_html=True)
         st.markdown("<div class='reason-text'>Swantham ayy etho sambavam annh ennokkaya vicharam and vaa thoranna pna adakkathilla ingana vaa thorand paranonde irikkum,inganenda oru extrovert😜.</div>", unsafe_allow_html=True)
 
-        st.markdown("<div class='reason-text'>but you know what i like the thinks i mentioned abone even if they are good or bad it dosen't matter and just remember .</div>", unsafe_allow_html=True)
+        st.markdown("<div class='reason-text'>but you know what i like the thinks i mentioned above even if they are good or bad it dosen't matter and just remember .</div>", unsafe_allow_html=True)
 
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.write("<div class='reason-header'>Anu u are My Home in a Small World of Mine that I feel the most Comfortable space and want you with me till my last breath </div>", unsafe_allow_html=True)
