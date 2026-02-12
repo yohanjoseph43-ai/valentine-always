@@ -235,6 +235,6 @@ elif st.session_state.step == "finale":
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.markdown("<h1 style='color: #ff758c;'>💖 YES! 💖</h1>", unsafe_allow_html=True)
         st.write("## Connection Verified: 100% Sync")
-        st.write("### I Love You Forever (Your Favorite Prorammer[Ninta Swantham Manu 😎).")
+        st.write("### I Love You Forever (Your Favorite Prorammer[Ninta Swantham Manu 😎]).")
         if st.button("Restart Journey 🔄"): st.session_state.strikes = 0; move_to("security")
         st.markdown("</div>", unsafe_allow_html=True)
