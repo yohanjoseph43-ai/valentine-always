@@ -209,7 +209,7 @@ elif st.session_state.step == "secret_letter":
         
         st.markdown(f"""
             <div class='letter-card'>
-                <h2 style='color: #ff758c; text-align: center; margin-bottom: 20px;'>💌 To My Valentine</h2>
+                <h2 style='color: #ff758c; text-align: center; margin-bottom: 20px;'>💌 To My World</h2>
                 {secret_letter_text}
             </div>
         """, unsafe_allow_html=True)
