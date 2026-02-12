@@ -146,7 +146,7 @@ elif st.session_state.step == "reasons":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.write("🔍 System Analysis: Core Reasons Y You😅")
+        st.write("🔍 System Analysis: Core Reasons why You😅")
         
         # Reason 1
         st.markdown("<div class='reason-header'>✨ My Sweetie</div>", unsafe_allow_html=True)
