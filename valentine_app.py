@@ -193,7 +193,7 @@ elif st.session_state.step == "secret_letter":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.markdown("""<div style='background: white; border: 2px dashed #ff758c; padding: 30px; text-align: left; border-radius: 15px; color: #444;'>
+        st.markdown("""<div style='background: white; border: 2px dashed #ff758c; padding: 30px; text-align: left; border-radius: 15px; color: #444;'>)
         My Lovely Angel (Miss Anugraha[Anu]),<br><br>
         I’ve been thinking about how lucky I feel to have you in my life, and I just wanted to put it into words. You bring such a special energy into my days — whether we’re laughing about something silly or just talking about random things, you somehow make every moment feel lighter and happier. It’s one of my favorite parts of the day, knowing I get to share those little conversations and memories with you.
         What I admire most about you is how naturally you brighten the space around you. Your voice, your thoughts, your endless stories — they all carry a warmth that makes people feel comfortable and understood. I love how you can turn the simplest moment into something meaningful just by being yourself. It reminds me to enjoy life more and appreciate the small things.
