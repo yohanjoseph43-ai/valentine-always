@@ -199,7 +199,7 @@ elif st.session_state.step == "secret_letter":
         
         # --- EDIT YOUR SECRET LETTER HERE ---
         secret_letter_text = """
-        My My Lovely Angel (Miss Anugraha[Anu]),<br><br>
+        My Lovely Angel (Miss Anugraha[Anu]),<br><br>
         I’ve been thinking about how lucky I feel to have you in my life, and I just wanted to put it into words. You bring such a special energy into my days — whether we’re laughing about something silly or just talking about random things, you somehow make every moment feel lighter and happier. It’s one of my favorite parts of the day, knowing I get to share those little conversations and memories with you.
         What I admire most about you is how naturally you brighten the space around you. Your voice, your thoughts, your endless stories — they all carry a warmth that makes people feel comfortable and understood. I love how you can turn the simplest moment into something meaningful just by being yourself. It reminds me to enjoy life more and appreciate the small things.
         You’ve shown me how powerful kindness, honesty, and genuine care can be. Every time you smile or get excited about something, it’s contagious in the best way. Being around you makes me want to be a better, happier version of myself, and I’m grateful for that more than I can say.
