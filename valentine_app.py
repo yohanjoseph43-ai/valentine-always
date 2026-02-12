@@ -185,7 +185,7 @@ elif st.session_state.step == "soundtrack":
                         <p style='color: #888; font-size: 0.9em;'>{s['a']}</p>
                     </div>
                 </a>
-            """, unsafe_allow_html=True)0
+            """, unsafe_allow_html=True)
         if st.button("Read Secret Letter ➡️"): move_to("secret_letter")
         
 # --- STEP 7: SECRET LETTER ---
