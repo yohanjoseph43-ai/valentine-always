@@ -190,23 +190,30 @@ elif st.session_state.step == "soundtrack":
         
 # --- STEP 7: SECRET LETTER ---
 elif st.session_state.step == "secret_letter":
+    st.progress(0.9)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.markdown("""<div style='background: white; border: 2px dashed #ff758c; padding: 30px; text-align: left; border-radius: 15px; color: #444;'>)
-        My Lovely Angel (Miss Anugraha[Anu]),<br><br>
+        st.write("### 🔒 ACCESSING DEEP ARCHIVES...")
+        time.sleep(0.5)
+        
+        # --- EDIT YOUR SECRET LETTER HERE ---
+        secret_letter_text = """
+        My My Lovely Angel (Miss Anugraha[Anu]),<br><br>
         I’ve been thinking about how lucky I feel to have you in my life, and I just wanted to put it into words. You bring such a special energy into my days — whether we’re laughing about something silly or just talking about random things, you somehow make every moment feel lighter and happier. It’s one of my favorite parts of the day, knowing I get to share those little conversations and memories with you.
         What I admire most about you is how naturally you brighten the space around you. Your voice, your thoughts, your endless stories — they all carry a warmth that makes people feel comfortable and understood. I love how you can turn the simplest moment into something meaningful just by being yourself. It reminds me to enjoy life more and appreciate the small things.
         You’ve shown me how powerful kindness, honesty, and genuine care can be. Every time you smile or get excited about something, it’s contagious in the best way. Being around you makes me want to be a better, happier version of myself, and I’m grateful for that more than I can say.
         I hope you always remember how special you are — not just to me, but to everyone lucky enough to know you. Thank you for being your wonderful, talkative, caring self. Having you by my side makes ordinary days feel brighter, and I truly cherish what we share. No matter what, I’ll always appreciate the laughter, the conversations, and the warmth you bring into my life.<br><br>
         Yours always.
         """
+        
         st.markdown(f"""
-            <div class='letter-card' style='background: rgba(255, 255, 255, 0.7); border: 2px dashed #ff758c; border-radius: 20px; padding: 40px; text-align: left;'>
-                <h2 style='color: #ff758c; text-align: center;'>💌 To My Valentine</h2>
+            <div class='letter-card'>
+                <h2 style='color: #ff758c; text-align: center; margin-bottom: 20px;'>💌 To My Valentine</h2>
                 {secret_letter_text}
             </div>
         """, unsafe_allow_html=True)
+        
         if st.button("The Final Step ➡️"): move_to("finale")
         st.markdown("</div>", unsafe_allow_html=True)
 
