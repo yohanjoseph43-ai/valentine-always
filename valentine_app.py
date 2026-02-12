@@ -163,7 +163,7 @@ elif st.session_state.step == "reasons":
         st.markdown("<div class='reason-text'>but you know what i like the thinks i mentioned abone even if they are good or bad it dosen't matter and just remember .</div>", unsafe_allow_html=True)
 
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
-        st.write("<div class='reason-header'>Anu u are My Home in my Small World of Mine that I feel the most Comfortable space and want you with me till my last breath </div>", unsafe_allow_html=True)
+        st.write("<div class='reason-header'>Anu u are My Home in a Small World of Mine that I feel the most Comfortable space and want you with me till my last breath </div>", unsafe_allow_html=True)
        
         if st.button("Unlock Soundtrack ➡️"): move_to("soundtrack")
         st.markdown("</div>", unsafe_allow_html=True)
