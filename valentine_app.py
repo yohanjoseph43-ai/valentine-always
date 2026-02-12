@@ -175,10 +175,8 @@ elif st.session_state.step == "soundtrack":
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         songs = [
-            
             {"t": "I think they call this love", "a": "Matthew Ifield", "u": "https://music.youtube.com/watch?v=0k_199YdfX4"},
-            
-        ]
+                ]
         for s in songs:
             st.markdown(f"""
                 <a href="{s['u']}" target="_blank" class="song-link">
