@@ -98,7 +98,7 @@ if st.session_state.step == "security":
         st.write("🔒 **ENCRYPTED FILE: OPEN_HEART.EXE**")
         password = st.text_input("Enter Secret Key (City where we first met?):", type="default")
         if st.button("Decrypt"):
-            if password.lower() == "Bangalore": move_to("proposal")
+            if password.lower() == "bangalore": move_to("proposal")
             else: st.error("Access Denied. (Hint:The city you fell for Me😎) ")
         st.markdown("</div>", unsafe_allow_html=True)
 
