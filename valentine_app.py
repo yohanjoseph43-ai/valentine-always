@@ -2,7 +2,7 @@ import streamlit as st
 import time
 
 # 1. Page Configuration
-st.set_page_config(page_title="Love.OS | Grand Finale", page_icon="🥋", layout="wide")
+st.set_page_config(page_title="Love.OS | Grand Finale", page_icon="🫀", layout="wide")
 
 # 2. Styling (CSS)
 st.markdown("""
@@ -171,7 +171,7 @@ elif st.session_state.step == "reasons":
 # --- STEP 6: SOUNDTRACK ---
 elif st.session_state.step == "soundtrack":
     st.progress(0.7)
-    st.markdown("<h2 style='text-align:center; color:white;'>🎶 Heart's OST</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align:center; color:white;'>🎶 Song That Reminds Me Of You</h2>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         songs = [
