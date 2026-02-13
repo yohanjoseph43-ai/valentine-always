@@ -112,7 +112,7 @@ elif st.session_state.step == "proposal":
         with c1:
             if st.button("YES! 😍"): st.balloons(); move_to("karate")
         with c2:
-            if st.button("No 😢"): st.toast("Error: Selection disabled.(option disabled by your fav programmer🙃")
+            if st.button("No 😢"): st.toast("Error: Selection disabled.(option disabled by your fav programmer🙃)")
         st.markdown("</div>", unsafe_allow_html=True)
 
 # --- STEP 3: KARATE CHALLENGE ---
@@ -121,7 +121,7 @@ elif st.session_state.step == "karate":
     with col2:
         st.markdown("<div class='glass-card'>", unsafe_allow_html=True)
         st.write("🥋 Curiosity Test")
-        st.write("Punch my Heart to see what's Inside! Strike the target 10 times.")
+        st.write("Punch my Heart to see what's Inside! Strike the target 10 times.(Punch slowly or I'll Die🙃")
         st.progress(st.session_state.strikes / 10)
         if st.button("PUNCH! 👊"):
             st.session_state.strikes += 1
